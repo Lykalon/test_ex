@@ -41,12 +41,12 @@ namespace ModulSolution.Robots
 
                     if (LongPos.Count == 0 && ShortPos.Count == 0)
                     {
-                        if (ShortPos.Count == 0 && _dir != "Short" && Math.Abs(priceUpBig[bar + 1] - priceUpLittle[bar + 1]) <= DistMax.Value
+                        if (LongPos.Count == 0 && _dir != "Short" && Math.Abs(priceUpBig[bar + 1] - priceUpLittle[bar + 1]) <= DistMax.Value
                                 && Math.Abs(priceUpBig[bar + 1] - priceUpLittle[bar + 1]) >= DistMin.Value && priceUpLittle[bar + 1] - priceDownLittle[bar + 1] <= HLittleMax.Value
                                 && (priceDownBig[bar + 1] - priceUpLittle[bar + 1] > 0 || priceDownLittle[bar + 1] - priceUpBig[bar + 1] > 0))
                             BuyGreater(bar + 1, priceUpLittle[bar + 1] - Proboy.ValueInt * FinInfo.Security.MinStep, 1,
                                 "Открытие длинной позиции");
-                        if (LongPos.Count == 0 && _dir != "Long" && Math.Abs(priceUpBig[bar + 1] - priceUpLittle[bar + 1]) <= DistMax.Value
+                        if (ShortPos.Count == 0 && _dir != "Long" && Math.Abs(priceUpBig[bar + 1] - priceUpLittle[bar + 1]) <= DistMax.Value
                                 && Math.Abs(priceUpBig[bar + 1] - priceUpLittle[bar + 1]) >= DistMin.Value && priceUpLittle[bar + 1] - priceDownLittle[bar + 1] <= HLittleMax.Value
                                 && (priceDownBig[bar + 1] - priceUpLittle[bar + 1] > 0 || priceDownLittle[bar + 1] - priceUpBig[bar + 1] > 0))
                             ShortLess(bar + 1, priceDownLittle[bar + 1] + Proboy.ValueInt * FinInfo.Security.MinStep, 1,
